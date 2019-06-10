@@ -14,7 +14,7 @@ public class App extends Application {
 
     /**
      * The {@link #launch} method sets up my
-     * <code>Main</code> class as a JavaFX application.
+     * <code>App</code> class as a JavaFX application.
      *
      * @param args
      */
