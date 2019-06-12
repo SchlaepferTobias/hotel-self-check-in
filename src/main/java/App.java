@@ -14,7 +14,7 @@ public class App extends Application {
 
     /**
      * The {@link #launch} method sets up my
-     * <code>App</code> class as a JavaFX application.
+     * <code>Main</code> class as a JavaFX application.
      *
      * @param args
      */
@@ -37,7 +37,7 @@ public class App extends Application {
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass()
                         .getClassLoader()
-                        .getResource("fxml/main_window.fxml"));
+                        .getResource("fxml/welcome_view.fxml"));
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
