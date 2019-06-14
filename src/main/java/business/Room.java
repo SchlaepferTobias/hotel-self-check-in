@@ -6,9 +6,24 @@ import java.util.Map;
 
 public class Room {
 
-    private int roomNumber;
+    private final int roomNumber;
 
-    private Map<Date, Guest> taken = new HashMap<>();
+    private final Map<Date, Guest> bookingTable;
 
+    public Room(int roomNumber) {
+        this.roomNumber = roomNumber;
+        this.bookingTable = new HashMap<>();
+    }
+
+    public boolean isFree(Date date) {
+        return !bookingTable.containsKey(date);
+    }
+
+    public void book(Date date, Guest guest) {
+        if (!isFree(date)) {
+            throw new RuntimeException("Cannot book a room twice!");
+        }
+        bookingTable.put(date,guest);
+    }
 
 }
