@@ -19,6 +19,7 @@ public class SchinOneThreeController {
 
     @FXML
     private ImageView next;
+
     private ViewLoader viewLoader = ViewLoader.getInstance();
 
 
