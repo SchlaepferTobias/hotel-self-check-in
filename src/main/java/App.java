@@ -10,6 +10,9 @@ import java.io.IOException;
 
 public class App extends Application {
 
+
+    private Stage primaryStage;
+
     public App() {
         System.out.println("App class");
     }
@@ -35,10 +38,18 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException{
 
+        this.primaryStage = primaryStage;
+
         primaryStage.setTitle("Hotel self check-in");
         FXMLLoader loader = new FXMLLoader();
         Parent root = ViewLoader.getInstance().loadView(ViewLoader.WELCOME_VIEW);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+
+    }
+
+
+    public void changeStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
     }
 }
