@@ -2,6 +2,8 @@ package util;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -25,7 +27,7 @@ public class ViewLoader {
     private ViewLoader() {
     }
 
-    public Parent loadView(String filename) {
+    private Parent loadFXMLFile(String filename) {
 
         System.err.println(VIEW_DIR + filename);
 
@@ -36,6 +38,17 @@ public class ViewLoader {
         } catch (IOException e) {
             throw new IORuntimeException(e);
         }
+
     }
+
+    public void loadView(Stage stage, String filename) {
+
+        Parent root = getInstance().loadFXMLFile(filename);
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
 
 }

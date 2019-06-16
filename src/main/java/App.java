@@ -38,18 +38,8 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException{
 
-        this.primaryStage = primaryStage;
-
-        primaryStage.setTitle("Hotel self check-in");
-        FXMLLoader loader = new FXMLLoader();
-        Parent root = ViewLoader.getInstance().loadView(ViewLoader.WELCOME_VIEW);
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
-
+        primaryStage.setTitle("Hotel Self Check-In");
+        ViewLoader.getInstance().loadView(primaryStage, ViewLoader.WELCOME_VIEW);
     }
 
-
-    public void changeStage(Stage primaryStage) {
-        this.primaryStage = primaryStage;
-    }
 }
