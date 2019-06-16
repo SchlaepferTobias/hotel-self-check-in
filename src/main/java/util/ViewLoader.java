@@ -25,13 +25,17 @@ public class ViewLoader {
     private ViewLoader() {
     }
 
-    public Parent loadView(String filename) throws IOException {
+    public Parent loadView(String filename) {
 
         System.err.println(VIEW_DIR + filename);
 
-        return loader.load(getClass()
-                .getClassLoader()
-                .getResource(VIEW_DIR + filename));
+        try {
+            return loader.load(getClass()
+                    .getClassLoader()
+                    .getResource(VIEW_DIR + filename));
+        } catch (IOException e) {
+            throw new IORuntimeException(e);
+        }
     }
 
 }

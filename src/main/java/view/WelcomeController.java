@@ -33,13 +33,8 @@ public class WelcomeController {
         this.hotel = factory.getInstitution(InstitutionFactory.Type.HOTEL);
     }
 
-    @FXML
-    void handleDoor(MouseEvent event) throws IOException {
 
-        loadOneThreeView();
-    }
-
-    public void loadOneThreeView() throws IOException {
+    public void loadOneThreeView() {
 
         Stage stage = (Stage) door.getScene().getWindow();
 
@@ -49,4 +44,9 @@ public class WelcomeController {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void initialize() {
+        door.setOnMouseClicked(event -> loadOneThreeView());
+    }
+
 }
