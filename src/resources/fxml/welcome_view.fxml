@@ -22,19 +22,18 @@
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <children>
-                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="38.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="door" fitHeight="100.0" fitWidth="100.0" layoutX="38.0" layoutY="22.0" onMouseClicked="#handleDoor" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
                      <image>
-                        <Image url="@../../../../../../Schule/M226b/files/button-door.png" />
+                        <Image url="@../img/button-door.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="52.0" layoutY="36.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="73.0" style="-fx-cursor: hand; -fx-background-color: transparent;" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                <children>
                   <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="39.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../Schule/M226b/files/button-bed.png" />
+                        <Image url="@../img/button-bed.png" />
                      </image>
                   </ImageView>
                   <Button layoutX="52.0" layoutY="36.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="73.0" style="-fx-cursor: hand; -fx-background-color: transparent;" />
@@ -48,7 +47,7 @@
          <children>
             <ImageView fitHeight="400.0" fitWidth="800.0" layoutX="215.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../Schule/M226b/files/welcome.png" />
+                  <Image url="@../img/welcome.png" />
                </image>
             </ImageView>
          </children>

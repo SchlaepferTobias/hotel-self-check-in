@@ -3,6 +3,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import util.ViewLoader;
+
 import java.io.IOException;
 
 
@@ -35,9 +37,7 @@ public class App extends Application {
 
         primaryStage.setTitle("Hotel self check-in");
         FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(getClass()
-                        .getClassLoader()
-                        .getResource("fxml/welcome_view.fxml"));
+        Parent root = ViewLoader.getInstance().loadView(ViewLoader.WELCOME_VIEW);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
