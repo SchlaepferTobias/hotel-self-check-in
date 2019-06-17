@@ -17,7 +17,7 @@ public class RoomTest {
 
     @Test
     public void isFree() {
-        room.book(new Date(2019, 06, 27), new Guest());
+        room.book(new Date(2019, 06, 27));
         Assert.assertFalse(room.isFree(new Date(2019, 06, 27)));
         Assert.assertTrue(room.isFree(new Date(2019, 06, 30)));
     }

@@ -1,22 +1,23 @@
 package business;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import business.person.Guest;
+
+import java.util.*;
 
 public class Hotel implements Institution {
 
     /**
      * list of all rooms in the hotel
      */
-    private Map<Integer, Room> rooms = new HashMap<>();
-    private List<Reservation> reservations = new LinkedList<>();
+    private final Set<Room> rooms;
+    private final Set<Reservation> reservations;
 
     private static Hotel hotel;
 
 
     private Hotel() {
+        this.rooms = new HashSet<>();
+        this.reservations = new HashSet<>();
     }
 
     /**
@@ -30,21 +31,35 @@ public class Hotel implements Institution {
         return hotel;
     }
 
-    public void bookRoom() {
+    private void initialize() {
+        for (int i = 101; i<110; i++) {
+            rooms.add(new Room(i));
+        }
+        for (int i = 201; i<208; i++) {
+            rooms.add(new Room(i));
+        }
+        for (int i = 301; i<304; i++) {
+            rooms.add(new Room(i));
+        }
+    }
+
+    /**
+     * Hotel reserviert ein Raum fuer den Gast
+     * das heisst die Raumnummer wird auf besetzt gesetzt.
+     * fuer eine bestimmte Zeit
+     * @param guest
+     */
+    public void reserveRoom(Guest guest) {
 
     }
 
-    private void initialize() {
-        for (int i = 101; i<110; i++) {
-            rooms.put(i, new Room(i));
-        }
-        for (int i = 201; i<208; i++) {
-            rooms.put(i, new Room(i));
-        }
-        for (int i = 301; i<304; i++) {
-            rooms.put(i, new Room(i));
-        }
 
+    public Set<Room> getRooms() {
+        return rooms;
+    }
+
+    public Set<Reservation> getReservations() {
+        return reservations;
     }
 
 }
