@@ -36,6 +36,7 @@ public class Room {
         return bookedDays;
     }
 
+
     /**
      * Um Objekte dieses Datentyps zu vergleichen
      * (macht Sinn diese zwei Methoden zu implementieren,
