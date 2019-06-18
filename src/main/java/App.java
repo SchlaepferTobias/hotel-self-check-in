@@ -1,18 +1,12 @@
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 import util.ViewLoader;
-
 import java.io.IOException;
 
 
 public class App extends Application {
 
-
-    private Stage primaryStage;
-
+    // private Stage primaryStage;
     public App() {
         System.out.println("App class");
     }
