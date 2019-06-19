@@ -7,7 +7,9 @@ import java.util.*;
 public class Hotel implements Institution {
 
     /**
-     * list of all rooms in the hotel
+     * 'list' of all rooms in the hotel
+     * Eigentlich Set (=Menge); enthaelt
+     * eindeutige Elemente
      */
     private final Set<Room> rooms;
     private final Set<Reservation> reservations;
@@ -18,6 +20,7 @@ public class Hotel implements Institution {
     private Hotel() {
         this.rooms = new HashSet<>();
         this.reservations = new HashSet<>();
+
     }
 
     /**
@@ -31,29 +34,43 @@ public class Hotel implements Institution {
         return hotel;
     }
 
-    private void initialize() {
-        for (int i = 101; i<110; i++) {
-            rooms.add(new Room(i));
-        }
-        for (int i = 201; i<208; i++) {
-            rooms.add(new Room(i));
-        }
-        for (int i = 301; i<304; i++) {
-            rooms.add(new Room(i));
-        }
-    }
 
     /**
      * Hotel reserviert ein Raum fuer den Gast
      * das heisst die Raumnummer wird auf besetzt gesetzt.
      * fuer eine bestimmte Zeit
+     *
+     * BIS JETZT KANN NUR _EIN_ DATUM HINZUGEF.WERDEN
+     *
      * @param guest
      */
-    public void reserveRoom(Guest guest) {
-
+    public void reserveRoom(Guest guest, Date date, int bookingNumber) {
+        Room room = getFreeRoom(date);
+        reservations.add(new Reservation(guest, bookingNumber, room));
     }
 
+    /**
+     * WAS PASSIERT HIER ?
+     * von den Raeumen(Set) werden alle genommen(stream)
+     * gefiltert, die, die frei sind, und herausgegeben
+     * kann auch 0 sein.
+     *
+     * @param date
+     * @return
+     */
+    private Room getFreeRoom(Date date) {
+        return rooms.stream()
+                .filter(room -> room.isFree(date))
+                .findFirst()
+                .get();
+    }
 
+    /**
+     * Git nur d Schachtle zrugg!
+     * (Genau das Set, aber nid d Ruem drin inne)
+     * > s Hotel soett nur 1 einzigs Set vo Ruem ha! (ueberlegig wie Singleton??!)
+     * @return
+     */
     public Set<Room> getRooms() {
         return rooms;
     }
