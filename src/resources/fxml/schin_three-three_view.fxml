@@ -126,14 +126,14 @@
                                      <Image url="@../img/checkedin.png"/>
                                  </image>
                              </ImageView>
-                             <Label contentDisplay="CENTER" layoutX="546.0" layoutY="55.0" text="room 801"
-                                    textFill="#e3e4c2">
+                             <Label fx:id="roomNumber" contentDisplay="CENTER" layoutX="546.0" layoutY="55.0"
+                                    text="room 801" textFill="#e3e4c2">
                                  <font>
                                      <Font name="Helvetica Neue" size="37.0"/>
                                  </font>
                              </Label>
-                             <Label contentDisplay="CENTER" layoutX="511.0" layoutY="103.0" text="until may 10th 2019"
-                                    textFill="#e3e4c2">
+                             <Label fx:id="stayTime" contentDisplay="CENTER" layoutX="511.0" layoutY="103.0"
+                                    text="until may 10th 2019" textFill="#e3e4c2">
                                  <font>
                                      <Font name="Helvetica Neue" size="25.0"/>
                                  </font>

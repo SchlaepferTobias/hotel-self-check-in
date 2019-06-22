@@ -3,6 +3,7 @@ package util;
 import business.Address;
 import business.Hotel;
 import business.Room;
+import business.person.Employee;
 import business.person.Guest;
 
 import java.util.Date;
@@ -29,6 +30,7 @@ public class BootStrapDataFactory {
     public void init() {
         addRoomsToHotel();
         createReservations();
+        createEmployee();
     }
 
     /**
@@ -56,4 +58,13 @@ public class BootStrapDataFactory {
         hotel.reserveRoom(sarah, new Date(2019, 06, 22), 999);
     }
 
+    private void createEmployee() {
+        Employee employee = new Employee("Norris",
+                "Chuck",
+                new Address("Street 100", "Pensilwenya", "99012", "USA"),
+                "Master of the universe",
+                111,
+                new Date(3050, 8, 8));
+        hotel.getEmployees().add(employee);
+    }
 }

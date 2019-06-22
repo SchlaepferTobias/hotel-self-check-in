@@ -1,5 +1,6 @@
 package business;
 
+import business.person.Employee;
 import business.person.Guest;
 
 import java.util.*;
@@ -13,6 +14,7 @@ public class Hotel implements Institution {
      */
     private final Set<Room> rooms;
     private final Set<Reservation> reservations;
+    private final Set<Employee> employees;
 
     private static Hotel hotel;
 
@@ -20,6 +22,7 @@ public class Hotel implements Institution {
     private Hotel() {
         this.rooms = new HashSet<>();
         this.reservations = new HashSet<>();
+        this.employees = new HashSet<>();
     }
 
     /**
@@ -77,6 +80,10 @@ public class Hotel implements Institution {
         return rooms;
     }
 
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+
     public Set<Reservation> getReservations() {
         return reservations;
     }
@@ -90,5 +97,6 @@ public class Hotel implements Institution {
         return null;
 
     }
+
 
 }

@@ -42,10 +42,11 @@ public class SchinTwoThreeController {
 
     private ViewLoader viewLoader = ViewLoader.getInstance();
 
+    public SchinTwoThreeController() {
+        instance = this;
+    }
 
     public void initialize() {
-
-        instance = this;
 
         back.setOnMouseClicked(event -> {
             Stage stage = (Stage) back.getScene().getWindow();
@@ -55,6 +56,11 @@ public class SchinTwoThreeController {
         next.setOnMouseClicked(event -> {
             Stage stage = (Stage) next.getScene().getWindow();
             viewLoader.loadView(stage, ViewLoader.SCHIN_THREE_THREE_VIEW);
+
+            SchinThreeThreeController threeController = SchinThreeThreeController.instance;
+            threeController.reservation = reservation;
+            threeController.loadReservation();
+
         });
 
     }
@@ -79,10 +85,6 @@ public class SchinTwoThreeController {
                 .map(date -> date.toString())
                 .findFirst()
                 .orElse(""));
-
-
-        // arriving and leaving
-
     }
 
 

@@ -27,6 +27,16 @@ public class ViewLoader {
     private ViewLoader() {
     }
 
+    /**
+     * Neue IORuntimeException um das 'Problem/Fehler' zu fangen.
+     * Programm laeuft nicht weiter, sondern stuerzt ab.
+     * Es kann eine Fehlermeldung herausgegeben werden.
+     * (Andernfalls wuerde das Programm weiter laufen und die Klassen die
+     * diese Methode aufrufen, wuerden versuchen den Fehler zu fangen)
+     *
+     * @param filename
+     * @return
+     */
     private Parent loadFXMLFile(String filename) {
 
         System.err.println(VIEW_DIR + filename);

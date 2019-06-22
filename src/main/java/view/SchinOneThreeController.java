@@ -42,6 +42,7 @@ public class SchinOneThreeController {
                 if (reservation.getGuest().getName().equals(inputName)) {
                     Stage stage = (Stage) next.getScene().getWindow();
                     viewLoader.loadView(stage, ViewLoader.SCHIN_TWO_THREE_VIEW);
+
                     SchinTwoThreeController twoController = SchinTwoThreeController.instance;
                     twoController.reservation = reservation;
                     twoController.loadReservation();
