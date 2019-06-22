@@ -20,7 +20,6 @@ public class Hotel implements Institution {
     private Hotel() {
         this.rooms = new HashSet<>();
         this.reservations = new HashSet<>();
-
     }
 
     /**
@@ -52,23 +51,23 @@ public class Hotel implements Institution {
     /**
      * WAS PASSIERT HIER ?
      * von den Raeumen(Set) werden alle genommen(stream)
-     * gefiltert, die, die frei sind, und herausgegeben
-     * kann auch 0 sein.
+     * gefiltert, die, die frei sind, und herausgegeben;
+     * kann auch 0 sein, dann wird eine Runtimexception geworfen.
      *
      * @param date
      * @return
      */
+
     private Room getFreeRoom(Date date) {
         return rooms.stream()
                 .filter(room -> room.isFree(date))
                 .findFirst()
-                .get();
+                .orElseThrow(() -> new RuntimeException("all rooms are booked"));
     }
 
     /**
      * Git nur d Schachtle zrugg!
      * (Genau das Set, aber nid d Ruem drin inne)
-     * > s Hotel soett nur 1 einzigs Set vo Ruem ha! (ueberlegig wie Singleton??!)
      * @return
      */
     public Set<Room> getRooms() {
@@ -77,6 +76,16 @@ public class Hotel implements Institution {
 
     public Set<Reservation> getReservations() {
         return reservations;
+    }
+
+    public Reservation getReservation(int bookingNr) {
+        for (Reservation reservation : reservations) {
+            if (reservation.getBookingNr() == bookingNr) {
+                return reservation;
+            }
+        }
+        return null;
+
     }
 
 }

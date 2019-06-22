@@ -1,13 +1,18 @@
 package util;
 
+import business.Address;
 import business.Hotel;
 import business.Room;
+import business.person.Guest;
+
+import java.util.Date;
 
 public class BootStrapDataFactory {
 
     private static BootStrapDataFactory ourInstance = new BootStrapDataFactory();
 
     Hotel hotel = Hotel.getInstance();
+
 
     public static BootStrapDataFactory getInstance() {
         return ourInstance;
@@ -23,6 +28,7 @@ public class BootStrapDataFactory {
      */
     public void init() {
         addRoomsToHotel();
+        createReservations();
     }
 
     /**
@@ -38,6 +44,16 @@ public class BootStrapDataFactory {
         for (int i = 301; i < 304; i++) {
             hotel.getRooms().add(new Room(i));
         }
+    }
+
+    private void createReservations() {
+        Guest sarah = new Guest(
+                "Bettinger",
+                "Sarah",
+                new Address("Binnigerstrasse 97", "Allschwil", "4123", "Schweiz"),
+                "0794824462",
+                "b.sarah2@hotmail.com");
+        hotel.reserveRoom(sarah, new Date(2019, 06, 22), 999);
     }
 
 }

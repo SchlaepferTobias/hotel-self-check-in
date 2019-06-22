@@ -1,5 +1,7 @@
 package view;
 
+import business.Hotel;
+import business.Reservation;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -7,6 +9,8 @@ import javafx.stage.Stage;
 import util.ViewLoader;
 
 public class SchinOneThreeController {
+
+    private final Hotel hotel = Hotel.getInstance();
 
     @FXML
     private TextField bookingId;
@@ -33,6 +37,23 @@ public class SchinOneThreeController {
             Stage stage = (Stage) next.getScene().getWindow();
             viewLoader.loadView(stage, ViewLoader.SCHIN_TWO_THREE_VIEW);
         });
+
+        bookingId.setOnAction(event -> {
+            String input = bookingId.getText().trim();
+            Reservation reservation = null;
+            if (input.length() == 3) {
+                reservation = hotel.getReservation(Integer.parseInt(input));
+            }
+
+            if (reservation != null) {
+                String guestLastName = reservation.getGuest().getName();
+                name.setText(guestLastName);
+            }
+
+
+            // wenn Rueckgabe Wert == null in methode getReservation() -> mach TextField bookingId rot
+        });
+
 
     }
 
