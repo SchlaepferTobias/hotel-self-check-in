@@ -15,13 +15,13 @@ public class Reservation {
 
     private Room room;
 
-    private final Set<Date> reservation;
+    private final Set<Date> daysOfReservation;
 
     public Reservation(Guest guest, int bookingNr, Room room) {
         this.guest = guest;
         this.bookingNr = bookingNr;
         this.room = room;
-        this.reservation = new HashSet<>();
+        this.daysOfReservation = new HashSet<>();
     }
 
     public Guest getGuest() {
@@ -36,8 +36,8 @@ public class Reservation {
         return room;
     }
 
-    public Set<Date> getReservation() {
-        return reservation;
+    public Set<Date> getDaysOfReservation() {
+        return daysOfReservation;
     }
 
     @Override
@@ -48,11 +48,11 @@ public class Reservation {
         return bookingNr == that.bookingNr &&
                 Objects.equals(guest, that.guest) &&
                 Objects.equals(room, that.room) &&
-                Objects.equals(reservation, that.reservation);
+                Objects.equals(daysOfReservation, that.daysOfReservation);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(guest, bookingNr, room, reservation);
+        return Objects.hash(guest, bookingNr, room, daysOfReservation);
     }
 }

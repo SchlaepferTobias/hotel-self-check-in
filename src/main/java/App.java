@@ -1,5 +1,6 @@
 import javafx.application.Application;
 import javafx.stage.Stage;
+import util.BootStrapDataFactory;
 import util.ViewLoader;
 import java.io.IOException;
 
@@ -18,7 +19,12 @@ public class App extends Application {
      * @param args
      */
     public static void main(String[] args) {
+
+        BootStrapDataFactory bootStrapDataFactory = BootStrapDataFactory.getInstance();
+        bootStrapDataFactory.init();
+
         launch(App.class, args);
+
     }
 
     /**
