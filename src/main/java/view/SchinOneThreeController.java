@@ -34,8 +34,21 @@ public class SchinOneThreeController {
         });
 
         next.setOnMouseClicked(event -> {
-            Stage stage = (Stage) next.getScene().getWindow();
-            viewLoader.loadView(stage, ViewLoader.SCHIN_TWO_THREE_VIEW);
+            String inputBookingId = bookingId.getText().trim();
+            String inputName = name.getText().trim();
+
+            Reservation reservation = hotel.getReservation(Integer.parseInt(inputBookingId));
+            if (reservation != null) {
+                if (reservation.getGuest().getName().equals(inputName)) {
+                    Stage stage = (Stage) next.getScene().getWindow();
+                    viewLoader.loadView(stage, ViewLoader.SCHIN_TWO_THREE_VIEW);
+                    SchinTwoThreeController twoController = SchinTwoThreeController.instance;
+                    twoController.reservation = reservation;
+                    twoController.loadReservation();
+                }
+
+            }
+
         });
 
         bookingId.setOnAction(event -> {
@@ -51,7 +64,7 @@ public class SchinOneThreeController {
             }
 
 
-            // wenn Rueckgabe Wert == null in methode getReservation() -> mach TextField bookingId rot
+            // wenn Rueckgabe Wert == null in methode getDaysOfReservation() -> mach TextField bookingId rot
         });
 
 

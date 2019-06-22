@@ -45,7 +45,10 @@ public class Hotel implements Institution {
      */
     public void reserveRoom(Guest guest, Date date, int bookingNumber) {
         Room room = getFreeRoom(date);
-        reservations.add(new Reservation(guest, bookingNumber, room));
+        room.book(date);
+        Reservation reservation = new Reservation(guest, bookingNumber, room);
+        reservation.getDaysOfReservation().add(date);
+        reservations.add(reservation);
     }
 
     /**
