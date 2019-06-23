@@ -55,7 +55,16 @@ public class BootStrapDataFactory {
                 new Address("Binnigerstrasse 97", "Allschwil", "4123", "Schweiz"),
                 "0794824462",
                 "b.sarah2@hotmail.com");
-        hotel.reserveRoom(sarah, new Date(2019, 06, 22), 999);
+        hotel.reserveRoom(sarah, new Date(2019 - 1900, 06 - 1, 22), 999);
+
+        Guest tobias = new Guest(
+                "Schlaepfer",
+                "Tobias",
+                new Address("Strasse 1", "Blauwil", "6275", "Schweiz"),
+                "0798881190",
+                "ts@hotmail.com");
+        hotel.reserveRoom(tobias, new Date(2019 - 1900, 06 - 1, 22), 111);
+
     }
 
     private void createEmployee() {
@@ -64,7 +73,7 @@ public class BootStrapDataFactory {
                 new Address("Street 100", "Pensilwenya", "99012", "USA"),
                 "Master of the universe",
                 111,
-                new Date(3050, 8, 8));
+                new Date(3050 - 1900, 8 - 1, 8));
         hotel.getEmployees().add(employee);
     }
 }

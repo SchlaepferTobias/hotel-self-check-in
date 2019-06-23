@@ -6,6 +6,8 @@ import business.person.Guest;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+import java.text.SimpleDateFormat;
+
 public class SchinThreeThreeController {
 
     static SchinThreeThreeController instance;
@@ -33,21 +35,22 @@ public class SchinThreeThreeController {
 
     void loadReservation() {
         Guest guest = reservation.getGuest();
-        guestCheckedIn.setText(guest.getFirstname() + " " + guest.getName() + " , done!");
+        guestCheckedIn.setText(guest.getFirstname() + " " + guest.getName() + ", done!");
 
         // Mitarbeiter ins Label
         String employeeString = Hotel.getInstance().getEmployees().stream()
                 .map(employee -> employee.getName())
                 .findFirst()
                 .orElse("no employee found");
-        guestAskEmployee.setText("(for more information, please feel free to ask " + employeeString + "at the reception)");
+        guestAskEmployee.setText("(for more information, please feel free to ask " + employeeString + " at the reception)");
 
         // Raumnummer ins Label
-        roomNumber.setText(String.valueOf(reservation.getRoom().getRoomNumber()));
+        roomNumber.setText(String.format("room %s", String.valueOf(reservation.getRoom().getRoomNumber())));
 
         // Aufenthaltszeit ins Label
-        stayTime.setText(reservation.getDaysOfReservation().stream()
-                .map(date -> date.toString())
+        final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("MMM d, YYYY");
+        stayTime.setText("until " + reservation.getDaysOfReservation().stream()
+                .map(date -> DATE_FORMAT.format(date).toLowerCase())
                 .findFirst()
                 .orElse(""));
     }

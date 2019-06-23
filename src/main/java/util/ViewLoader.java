@@ -18,6 +18,7 @@ public class ViewLoader {
     public static final String SCHIN_ONE_THREE_VIEW = "schin_one-three_view.fxml";
     public static final String SCHIN_TWO_THREE_VIEW = "schin_two-three_view.fxml";
     public static final String SCHIN_THREE_THREE_VIEW = "schin_three-three_view.fxml";
+    public static final String BAR_ONE_FOUR_VIEW = "bar_one-four_view.fxml";
 
 
     public static ViewLoader getInstance() {

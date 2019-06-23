@@ -7,6 +7,8 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import util.ViewLoader;
 
+import java.text.SimpleDateFormat;
+
 public class SchinTwoThreeController {
 
     static SchinTwoThreeController instance;
@@ -72,17 +74,19 @@ public class SchinTwoThreeController {
         email.setText(reservation.getGuest().getEmail());
         mobile.setText(reservation.getGuest().getMobile());
 
+        final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("EEEE d MMMM, YYYY");
+
         arriving.setText(reservation
                 .getDaysOfReservation()
                 .stream()
-                .map(date -> date.toString())
+                .map(date -> DATE_FORMAT.format(date))
                 .findFirst()
                 .orElse(""));
 
         leaving.setText(reservation
                 .getDaysOfReservation()
                 .stream()
-                .map(date -> date.toString())
+                .map(date -> DATE_FORMAT.format(date))
                 .findFirst()
                 .orElse(""));
     }

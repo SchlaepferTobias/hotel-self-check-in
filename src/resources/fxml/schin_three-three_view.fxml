@@ -73,10 +73,10 @@
                  <children>
                      <GridPane alignment="CENTER">
                          <columnConstraints>
-                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="315.0"/>
-                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="631.3125305175781" minWidth="10.0"
-                                                prefWidth="562.9196472167969"/>
-                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="315.0"/>
+                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="602.05517578125" minWidth="10.0"
+                                                prefWidth="325.5752868652344"/>
+                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="922.7805786132812" minWidth="10.0"
+                                                prefWidth="916.4247131347656"/>
                          </columnConstraints>
                          <rowConstraints>
                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
@@ -126,18 +126,36 @@
                                      <Image url="@../img/checkedin.png"/>
                                  </image>
                              </ImageView>
-                             <Label fx:id="roomNumber" contentDisplay="CENTER" layoutX="546.0" layoutY="55.0"
-                                    text="room 801" textFill="#e3e4c2">
-                                 <font>
-                                     <Font name="Helvetica Neue" size="37.0"/>
-                                 </font>
-                             </Label>
-                             <Label fx:id="stayTime" contentDisplay="CENTER" layoutX="511.0" layoutY="103.0"
-                                    text="until may 10th 2019" textFill="#e3e4c2">
-                                 <font>
-                                     <Font name="Helvetica Neue" size="25.0"/>
-                                 </font>
-                             </Label>
+                             <GridPane alignment="CENTER" layoutX="433.0" layoutY="53.0" prefHeight="88.0"
+                                       prefWidth="380.0">
+                                 <columnConstraints>
+                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                 </rowConstraints>
+                                 <children>
+                                     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                         <children>
+                                             <Label fx:id="roomNumber" contentDisplay="CENTER" text="room 801"
+                                                    textFill="#e3e4c2">
+                                                 <font>
+                                                     <Font name="Helvetica Neue" size="37.0"/>
+                                                 </font>
+                                                 <VBox.margin>
+                                                     <Insets bottom="5.0"/>
+                                                 </VBox.margin>
+                                             </Label>
+                                             <Label fx:id="stayTime" contentDisplay="CENTER" text="until may 10th 2019"
+                                                    textFill="#e3e4c2">
+                                                 <font>
+                                                     <Font name="Helvetica Neue" size="25.0"/>
+                                                 </font>
+                                             </Label>
+                                         </children>
+                                     </VBox>
+                                 </children>
+                             </GridPane>
                          </children>
                      </AnchorPane>
                  </children>

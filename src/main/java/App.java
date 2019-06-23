@@ -1,9 +1,21 @@
+/**
+ * Einstiegspunkt der Applikation - hotel-self-check-in.
+ * Es wird ein Hotel erstellt welches Raeume hat und Mitarbeiter.
+ * Ebenso Gaeste, die Raeume gebucht haben. Der Gast kann sich
+ * anand der Reservierungsnummer einchecken ohne
+ * an die Rezeption zu muessen. Er erhaelt die Bestaetigung und die
+ * Keycard.
+ *
+ * @author Sarah Bettinger, Tobias Schlaepfer
+ * @version 1.0
+ * @since 23.06.2019
+ */
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import util.BootStrapDataFactory;
 import util.ViewLoader;
 import java.io.IOException;
-
 
 public class App extends Application {
 

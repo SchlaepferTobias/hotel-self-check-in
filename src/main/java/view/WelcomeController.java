@@ -16,6 +16,9 @@ public class WelcomeController {
     @FXML
     private ImageView door;
 
+    @FXML
+    private ImageView bed;
+
     private ViewLoader viewLoader = ViewLoader.getInstance();
 
     public WelcomeController() {
@@ -27,6 +30,11 @@ public class WelcomeController {
         door.setOnMouseClicked(event -> {
             Stage stage = (Stage) door.getScene().getWindow();
             viewLoader.loadView(stage, ViewLoader.SCHIN_ONE_THREE_VIEW);
+        });
+
+        bed.setOnMouseClicked(event -> {
+            Stage stage = (Stage) bed.getScene().getWindow();
+            viewLoader.loadView(stage, ViewLoader.BAR_ONE_FOUR_VIEW);
         });
     }
 
